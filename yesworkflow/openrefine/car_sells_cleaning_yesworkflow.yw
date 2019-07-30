@@ -1,205 +1,178 @@
-#@begin Linear_OR #@desc Linear OpenRefine Workflow
-#@param col-name:manufacture_year
-#@param expression:value.trim()
-#@param oldColumnName:Crazy_New
-#@param newColumnName:crazy_run
-#@param expression:value.replace(/\\s+/,'_')
-#@param col-name:maker
-#@param col-name:date_created
-#@param col-name:color_slug
-#@param col-name:mileage
-#@param col-name:seat_count
-#@param col-name:fuel_type
-#@param newColumnName:Run_crazy
-#@param col-name:price_eur
-#@param expression:value.toDate()
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
 #@param oldColumnName:Run_crazy
-#@param newColumnName:crazy_new
-#@param col-name:engine_displacement
-#@param col-name:engine_power
-#@param newColumnName:Crazy_Run
-#@param col-name:body_type
-#@param col-name:date_last_seen
-#@param oldColumnName:Crazy_Run
-#@param col-name:Crazy_New
-#@param expression:value.toUppercase()
-#@param newColumnName:Crazy_New
-#@param col-name:door_count
-#@param col-name:model
 #@param expression:value.toNumber()
-#@param col-name:transmission
-#@param expression:"isBlank(value).toString()"
-#@in table0
-#@out table29
-#@begin core/text-transform0#@desc Text transform on cells in column maker using expression value.trim()
-#@param col-name:maker
 #@param expression:value.trim()
-#@in table0
-#@out table1
+#@param expression:value.toDate()
+#@param newColumnName:Crazy_Run
+#@param expression:value.replace(/\\s+/,'_')
+#@param mode:record-based
+#@param expression:value
+#@param expression:value.toUppercase()
+#@in maker
+#@in maker_2
+#@in date_created
+#@in Crazy_New
+#@in fuel_type
+#@in engine_power
+#@in transmission_1
+#@in maker_4
+#@in Run_crazy
+#@in model
+#@in price_eur
+#@in transmission_2
+#@in transmission
+#@in date_last_seen
+#@in mileage
+#@in color_slug
+#@in engine_displacement
+#@in maker_1
+#@in door_count
+#@in manufacture_year
+#@in body_type
+#@in maker_3
+#@in seat_count
+#@in manufacture_year_1
+#@out CleanData
+#@begin core/text-transform0 #@desc Text transform on cells in column maker using expression value.trim()
+#@param expression:value.trim()
+#@in maker
+#@out maker_1
 #@end core/text-transform0
-#@begin core/text-transform1#@desc Text transform on cells in column maker using expression value.replace(/\\s+/,' ')
-#@param col-name:maker
+#@begin core/text-transform1 #@desc Text transform on cells in column maker using expression value.replace(/\\s+/,' ')
 #@param expression:value.replace(/\\s+/,'_')
-#@in table1
-#@out table2
+#@in maker_1
+#@out maker_2
 #@end core/text-transform1
-#@begin core/text-transform2#@desc Text transform on cells in column model using expression value.replace(/\\s+/,' ')
-#@param col-name:model
+#@begin core/text-transform2 #@desc Text transform on cells in column model using expression value.replace(/\\s+/,' ')
 #@param expression:value.replace(/\\s+/,'_')
-#@in table2
-#@out table3
+#@in model
+#@out model_1
 #@end core/text-transform2
-#@begin core/text-transform3#@desc Text transform on cells in column transmission using expression value.trim()
-#@param col-name:transmission
+#@begin core/text-transform3 #@desc Text transform on cells in column transmission using expression value.trim()
 #@param expression:value.trim()
-#@in table3
-#@out table4
+#@in transmission
+#@out transmission_1
 #@end core/text-transform3
-#@begin core/text-transform4#@desc Text transform on cells in column mileage using expression value.toNumber()
-#@param col-name:mileage
+#@begin core/text-transform4 #@desc Text transform on cells in column mileage using expression value.toNumber()
 #@param expression:value.toNumber()
-#@in table4
-#@out table5
+#@in mileage
+#@out mileage_1
 #@end core/text-transform4
-#@begin core/text-transform5#@desc Text transform on cells in column engine_displacement using expression value.toNumber()
-#@param col-name:engine_displacement
+#@begin core/text-transform5 #@desc Text transform on cells in column engine_displacement using expression value.toNumber()
 #@param expression:value.toNumber()
-#@in table5
-#@out table6
+#@in engine_displacement
+#@out engine_displacement_1
 #@end core/text-transform5
-#@begin core/text-transform6#@desc Text transform on cells in column engine_power using expression value.toNumber()
-#@param col-name:engine_power
+#@begin core/text-transform6 #@desc Text transform on cells in column engine_power using expression value.toNumber()
 #@param expression:value.toNumber()
-#@in table6
-#@out table7
+#@in engine_power
+#@out engine_power_1
 #@end core/text-transform6
-#@begin core/text-transform7#@desc Text transform on cells in column manufacture_year using expression value.toDate()
-#@param col-name:manufacture_year
+#@begin core/text-transform7 #@desc Text transform on cells in column manufacture_year using expression value.toDate()
 #@param expression:value.toDate()
-#@in table7
-#@out table8
+#@in manufacture_year
+#@out manufacture_year_1
 #@end core/text-transform7
-#@begin core/text-transform8#@desc Text transform on cells in column body_type using expression value.trim()
-#@param col-name:body_type
+#@begin core/text-transform8 #@desc Text transform on cells in column body_type using expression value.trim()
 #@param expression:value.trim()
-#@in table8
-#@out table9
+#@in body_type
+#@out body_type_1
 #@end core/text-transform8
-#@begin core/column-removal0#@desc Remove column color_slug
-#@param col-name:color_slug
-#@in table9
-#@out table10
-#@end core/column-removal0
-#@begin core/text-transform9#@desc Text transform on cells in column transmission using expression value.trim()
-#@param col-name:transmission
+#@begin core/column-removal9 #@desc Remove column color_slug
+#@in color_slug
+#@out remove-color_slug
+#@end core/column-removal9
+#@begin core/text-transform10 #@desc Text transform on cells in column transmission using expression value.trim()
 #@param expression:value.trim()
-#@in table10
-#@out table11
-#@end core/text-transform9
-#@begin core/text-transform10#@desc Text transform on cells in column door_count using expression value.toNumber()
-#@param col-name:door_count
-#@param expression:value.toNumber()
-#@in table11
-#@out table12
+#@in transmission_1
+#@out transmission_2
 #@end core/text-transform10
-#@begin core/text-transform11#@desc Text transform on cells in column seat_count using expression value.toNumber()
-#@param col-name:seat_count
+#@begin core/text-transform11 #@desc Text transform on cells in column door_count using expression value.toNumber()
 #@param expression:value.toNumber()
-#@in table12
-#@out table13
+#@in door_count
+#@out door_count_1
 #@end core/text-transform11
-#@begin core/text-transform12#@desc Text transform on cells in column fuel_type using expression value.trim()
-#@param col-name:fuel_type
-#@param expression:value.trim()
-#@in table13
-#@out table14
-#@end core/text-transform12
-#@begin core/text-transform13#@desc Text transform on cells in column date_created using expression value.toDate()
-#@param col-name:date_created
-#@param expression:value.toDate()
-#@in table14
-#@out table15
-#@end core/text-transform13
-#@begin core/text-transform14#@desc Text transform on cells in column date_last_seen using expression value.toDate()
-#@param col-name:date_last_seen
-#@param expression:value.toDate()
-#@in table15
-#@out table16
-#@end core/text-transform14
-#@begin core/text-transform15#@desc Text transform on cells in column price_eur using expression value.toNumber()
-#@param col-name:price_eur
+#@begin core/text-transform12 #@desc Text transform on cells in column seat_count using expression value.toNumber()
 #@param expression:value.toNumber()
-#@in table16
-#@out table17
-#@end core/text-transform15
-#@begin core/text-transform16#@desc Text transform on cells in column maker using expression value.toUppercase()
-#@param col-name:maker
-#@param expression:value.toUppercase()
-#@in table17
-#@out table18
-#@end core/text-transform16
-#@begin core/text-transform17#@desc Text transform on cells in column maker using expression value.toUppercase()
-#@param col-name:maker
-#@param expression:value.toUppercase()
-#@in table18
-#@out table19
-#@end core/text-transform17
-#@begin core/column-addition0#@desc Create column Run_crazy at index 3 based on column mileage using expression grel:value>200000
-#@param col-name:mileage
-#@param newColumnName:"Run_crazy"
-#@in table19
-#@out table20
-#@end core/column-addition0
-#@begin core/text-transform18#@desc Text transform on cells in column manufacture_year using expression value.toDate()
-#@param col-name:manufacture_year
+#@in seat_count
+#@out seat_count_1
+#@end core/text-transform12
+#@begin core/text-transform13 #@desc Text transform on cells in column fuel_type using expression value.trim()
+#@param expression:value.trim()
+#@in fuel_type
+#@out fuel_type_1
+#@end core/text-transform13
+#@begin core/text-transform14 #@desc Text transform on cells in column date_created using expression value.toDate()
 #@param expression:value.toDate()
-#@in table20
-#@out table21
+#@in date_created
+#@out date_created_1
+#@end core/text-transform14
+#@begin core/text-transform15 #@desc Text transform on cells in column date_last_seen using expression value.toDate()
+#@param expression:value.toDate()
+#@in date_last_seen
+#@out date_last_seen_1
+#@end core/text-transform15
+#@begin core/text-transform16 #@desc Text transform on cells in column price_eur using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in price_eur
+#@out price_eur_1
+#@end core/text-transform16
+#@begin core/text-transform17 #@desc Text transform on cells in column maker using expression value.toUppercase()
+#@param expression:value.toUppercase()
+#@in maker_2
+#@out maker_3
+#@end core/text-transform17
+#@begin core/text-transform18 #@desc Text transform on cells in column maker using expression value.toUppercase()
+#@param expression:value.toUppercase()
+#@in maker_3
+#@out maker_4
 #@end core/text-transform18
-#@begin core/column-addition1#@desc Create column Crazy_New at index 3 based on column mileage using expression grel:value<100
-#@param col-name:mileage
-#@param newColumnName:"Crazy_New"
-#@in table21
-#@out table22
-#@end core/column-addition1
-#@begin core/column-rename0#@desc Rename column Run_crazy to Crazy_Run
+#@begin core/text-transform19 #@desc Text transform on cells in column manufacture_year using expression value.toDate()
+#@param expression:value.toDate()
+#@in manufacture_year_1
+#@out manufacture_year_2
+#@end core/text-transform19
+#@begin core/column-rename20 #@desc Rename column Run_crazy to Crazy_Run
 #@param oldColumnName:Run_crazy
 #@param newColumnName:Crazy_Run
-#@in table22
-#@out table23
-#@end core/column-rename0
-#@begin core/column-removal1#@desc Remove column Crazy_New
-#@param col-name:Crazy_New
-#@in table23
-#@out table24
-#@end core/column-removal1
-#@begin core/column-addition2#@desc Create column Crazy_New at index 3 based on column mileage using expression grel:value<100
-#@param col-name:mileage
-#@param newColumnName:"Crazy_New"
-#@in table24
-#@out table25
-#@end core/column-addition2
-#@begin core/mass-edit0#@desc Mass edit cells in column transmission
-#@param col-name:transmission
-#@in table25
-#@out table26
-#@end core/mass-edit0
-#@begin core/row-removal0#@desc Remove rows
-#@param col-name:maker
-#@param expression:"isBlank(value).toString()"
-#@in table26
-#@out table27
-#@end core/row-removal0
-#@begin core/column-rename1#@desc Rename column Crazy_New to crazy_new
-#@param oldColumnName:Crazy_New
-#@param newColumnName:crazy_new
-#@in table27
-#@out table28
-#@end core/column-rename1
-#@begin core/column-rename2#@desc Rename column Crazy_Run to crazy_run
-#@param oldColumnName:Crazy_Run
-#@param newColumnName:crazy_run
-#@in table28
-#@out table29
-#@end core/column-rename2
-#@end Linear_OR
+#@in Run_crazy
+#@out Crazy_Run
+#@end core/column-rename20
+#@begin core/column-removal21 #@desc Remove column Crazy_New
+#@in Crazy_New
+#@out remove-Crazy_New
+#@end core/column-removal21
+#@begin core/mass-edit22 #@desc Mass edit cells in column transmission
+#@param expression:value
+#@in transmission_2
+#@out transmission_3
+#@end core/mass-edit22
+#@begin core/row-removal23 #@desc Remove rows
+#@param mode:record-based
+#@in maker_4
+#@out maker_5
+#@end core/row-removal23
+#@begin CombineDataCleaningChanges
+#@in maker_5
+#@in model_1
+#@in transmission_3
+#@in mileage_1
+#@in engine_displacement_1
+#@in engine_power_1
+#@in manufacture_year_2
+#@in body_type_1
+#@in color_slug
+#@in remove-color_slug
+#@in door_count_1
+#@in seat_count_1
+#@in fuel_type_1
+#@in date_created_1
+#@in date_last_seen_1
+#@in price_eur_1
+#@in Run_crazy
+#@in Crazy_Run
+#@in Crazy_New
+#@in remove-Crazy_New
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR

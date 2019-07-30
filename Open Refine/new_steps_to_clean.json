@@ -464,17 +464,5 @@
       ],
       "mode": "record-based"
     }
-  },
-  {
-    "op": "core/column-rename",
-    "description": "Rename column Crazy_New to crazy_new",
-    "oldColumnName": "Crazy_New",
-    "newColumnName": "crazy_new"
-  },
-  {
-    "op": "core/column-rename",
-    "description": "Rename column Crazy_Run to crazy_run",
-    "oldColumnName": "Crazy_Run",
-    "newColumnName": "crazy_run"
   }
 ]
