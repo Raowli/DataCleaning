@@ -433,5 +433,48 @@
         "to": "man"
       }
     ]
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "maker",
+          "expression": "isBlank(value).toString()",
+          "columnName": "maker",
+          "invert": false,
+          "selection": [
+            {
+              "v": {
+                "v": "true",
+                "l": "true"
+              }
+            }
+          ],
+          "selectNumber": false,
+          "selectDateTime": false,
+          "selectBoolean": false,
+          "omitBlank": false,
+          "selectBlank": false,
+          "omitError": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Crazy_New to crazy_new",
+    "oldColumnName": "Crazy_New",
+    "newColumnName": "crazy_new"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Crazy_Run to crazy_run",
+    "oldColumnName": "Crazy_Run",
+    "newColumnName": "crazy_run"
   }
 ]
